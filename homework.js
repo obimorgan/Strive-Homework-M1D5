@@ -81,11 +81,11 @@ const check3and7 = function (possitiveNumber) {
  Write a function called "reverseString" which programmatically reverses a given string (es.: Strive => evirtS).
 */
 const reverseString = function(str) {
-    let newString = "";
+    let newString = ""
     for (i = str.length - 1; i >= 0; i--) {
-        newString += str[i];
+        newString += str[i]
     }
-    return newString;
+    return newString
 }
 
 
@@ -94,8 +94,13 @@ const reverseString = function(str) {
 */
 
 const upperFirst = function(str) {
+    let arrayString = str.split(" ")
+    for (i = 0; i < arrayString.length; i++) {
+        arrayString[i] = arrayString[i].charAt(0).toUpperCase()
+        return arrayString.join(" ")
+    }
+}     /// only capitalises the first character of the first word
 
-}
 
 
 
@@ -103,13 +108,19 @@ const upperFirst = function(str) {
  Write a function called "cutString" which creates a new string without the first and last character of a given string passed as a parameter.
 */
 
-/* WRITE YOUR ANSWER HERE */
+const cutString = function (str) {
+    newString = str.slice(1, -1) 
+    return newString
+}
 
 /* EXERCISE 10
  Write a function called "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10.
 */
+const giveMeRandom = function (n) {
+    let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    return array
+}
 
-/* WRITE YOUR ANSWER HERE */
 
 /* WHEN YOU ARE FINISHED
  Commit and push the code to your personal GitHub repository; then post the link of your commit on the Homework section of today's Eduflow.
