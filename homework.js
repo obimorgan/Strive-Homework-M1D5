@@ -22,12 +22,12 @@ const area = function (l1, l2) {
 
 const crazySum = function(num1,num2) {
     if (num1 !== num2) {
-        num1 + num2
+        return  num1 + num2
     } else {
         return (num1 + num2) * 3
     }
 }
-
+console.log(crazySum(1,2))
 /* EXERCISE 3
  Write a function called "crazyDiff" that computes the absolute difference between a given number and 19.
  It should return triple their absolute difference if the given number is greater than 19.
@@ -35,9 +35,9 @@ const crazySum = function(num1,num2) {
 
 const crazyDiff = function(num) {
     if (num > 19) {
-        return(num - 19) * 3
+        return Maths.abs(num - 19) * 3
     } else {
-        return num - 19
+        return Maths.abs(num - 19)
     }
 }
 
@@ -52,6 +52,7 @@ const boundary = function (n) {
         return false
     }
 }
+console.log(boundary(21))
 
 /* EXERCISE 5
  Write a function called "strivify" which accepts a string as a parameter.
@@ -59,12 +60,14 @@ const boundary = function (n) {
 */
 
 const strivify = function (str) {
-    if (str !== "Strive") {
-        console.log(`"Strive ${str}`)
+    if (str.startsWith("Strive")) {
+        return str
     } else {
-        console.log(str)
+        return "Strive" + str
     }
 }
+
+console.log(strivify("lkjshfduih jhfjkdhf uihfhfuek hdippeh"))
 
 /* EXERCISE 6
  Write a function called "check3and7" which accepts a positive number as a parameter and checks if it is a multiple of 3 or a multiple of 7.
@@ -73,9 +76,12 @@ const strivify = function (str) {
 
 const check3and7 = function (possitiveNumber) {
     if (possitiveNumber % 3 === 0 || possitiveNumber % 7 === 0) {
-        console.log("This is a possitive number!")
+        return true
+    }else {
+        return false
     }
-} 
+}
+console.log(check3and7(-1))
 
 /* EXERCISE 7
  Write a function called "reverseString" which programmatically reverses a given string (es.: Strive => evirtS).
@@ -86,40 +92,66 @@ const reverseString = function(str) {
         newString += str[i]
     }
     return newString
-}
+}  // I'm using the for loop to iterate the string in reverese.
+
+    //However using this(from the solution) is more simplified:
+   
+    //const reverseString = function(str) {
+    //  return str.split("").reverse("").join("") }
+
+    
+
+console.log(reverseString("hello Wrold"))
 
 
 /* EXERCISE 8
  Write a function called "upperFirst" which capitalizes the first letter of each word of a given string passed as a parameter.
 */
 
+// const upperFirst = function(str) {
+//     let arrayString = str.split(" ")
+//     for (i = 0; i < arrayString.length; i++) {
+//         arrayString[i] = arrayString[i].charAt(0).toUpperCase() +arrayString[i].slice(1)
+//         return arrayString.join(" ")
+//     }
+// }
+
 const upperFirst = function(str) {
-    let arrayString = str.split(" ")
-    for (i = 0; i < arrayString.length; i++) {
-        arrayString[i] = arrayString[i].charAt(0).toUpperCase()
-        return arrayString.join(" ")
+    let arrayStriing = str.split(" ")
+    let newString = [ ]
+    for (let i = 0; i < arrayStriing.length; i ++) {
+        let capitalChar = arrayStriing[i].charAt(0).toUpperCase()
+        let sliceChar = arrayStriing[i].slice()
+        let resultChar = capitalChar + sliceChar
+        newString.push(resultChar)
     }
-}     /// only capitalises the first character of the first word
-
-
-
+    console.log(newString.join(" "))
+}
+console.log(upperFirst("hjkj hk abcdefg hhijklmnio zrstuvqx")) 
 
 /* EXERCISE 9
  Write a function called "cutString" which creates a new string without the first and last character of a given string passed as a parameter.
 */
 
 const cutString = function (str) {
-    newString = str.slice(1, -1) 
+    let newString = str.slice(1, -1) 
     return newString
 }
+console.log(cutString("abcd efg hijkl mnop qrstuv wxyz"))
 
 /* EXERCISE 10
  Write a function called "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10.
 */
 const giveMeRandom = function (n) {
-    let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    return array
+    let arr = []
+    for (i = 0 ; i <= n; i++) {
+        arr.push(Math.floor(Math.random() * 10)) // generates whole numbers to pushed into the array
+    }
+    return arr
 }
+
+console.log(giveMeRandom(6))
+
 
 
 /* WHEN YOU ARE FINISHED
